@@ -1,6 +1,7 @@
 package com.flyco.tablayoutsamples.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -32,6 +33,12 @@ public class SlidingTabActivity extends AppCompatActivity implements OnTabSelect
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliding_tab);
+        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SlidingTabActivity.this,CommonTabActivity.class));
+            }
+        });
 
         for (String title : mTitles) {
             mFragments.add(SimpleCardFragment.getInstance(title));
